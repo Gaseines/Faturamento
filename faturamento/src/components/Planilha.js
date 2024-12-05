@@ -2,7 +2,7 @@
 import styles from "./Planilha.module.css";
 
 //React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 
 //Scripts
@@ -15,6 +15,9 @@ import logo from '../images/icone_logo.png'
 
 function Planilha() {
   const [data, setData] = useState([]); // Para armazenar os dados carregados da planilha
+
+  //Valor cobrado do cliente
+  const [valorCliente , setValorCliente] = useState(52)
 
   //UseState do Select
   const [option, setOption] = useState("");
@@ -63,6 +66,24 @@ function Planilha() {
     }
   };
 
+  //Valida para pagar o valor correto do cliente
+  // const validValorCliente = () => {
+  //   if(option === "paganini"){
+  //     setValorCliente(50)
+  //   }else if(option === "bc"){
+  //     setValorCliente(30)
+  //   }
+  //     else{
+  //     setValorCliente(52)
+  //   }
+    
+  // }
+
+  // useEffect(() =>{
+  //   validValorCliente()
+  //   console.log(valorCliente)
+  // }, [option])
+
   //Processa dados para o site
   const processarDados = (data) => {
     return data.map((item) => ({
@@ -75,7 +96,7 @@ function Planilha() {
       demissao: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
       empresa: item.Empresa || "Não informado",
       Valor_Mot_Empresa: 52,
-      valorTotalEmpresa: (52 / 30) * (item["Dias calculado"] || 0),
+      valorTotalEmpresa: (valorCliente / 30) * (item["Dias calculado"] || 0),
       valorOp: (9.5 / 30) * (item["Dias calculado"] || 0),
     }));
   };
