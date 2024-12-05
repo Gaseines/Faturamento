@@ -1,0 +1,106 @@
+
+
+.container{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--azul);
+}
+
+.title{
+    margin: 50px;
+}
+
+.input{
+    display: none;
+}
+
+.custom_button{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+
+    transition: all .5s ease-in-out;
+}
+
+.custom_button:hover{
+    transform: scale(105%);
+}
+
+.valor{
+    display: flex;
+    margin-top: 30px;
+}
+
+.valor p{
+    color: white;
+    margin-right: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+
+.valor p span{
+    color: rgb(0, 255, 0);
+}
+
+.container_planilha{
+    margin-top: 30px;
+}
+
+.planilha{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+
+.header{
+    display: flex;
+    width: 100%;
+}
+
+.header p{
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 200px;    
+    margin: 0;
+    font-size: .7em;
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.dias{
+    width: 90px;
+}
+
+.valor_mot{
+    width: 70px;
+}
+
+.total{
+    width: 80px;
+}
+
+.nome{
+    width: 200px;
+}
+
+.cpf{
+    width: 100px;
+}
+
+.data{
+    width: 75px;
+}
+
+.empresa{
+    width: 200px;
+    
+}

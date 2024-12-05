@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root{
+  --azul: #006CE3;
+}
+
+body{
+  background-color: var(--azul);
+}
