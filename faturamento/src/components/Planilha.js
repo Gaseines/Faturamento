@@ -1,13 +1,31 @@
+//STYLES
 import styles from "./Planilha.module.css";
 
-import ExcelJS from "exceljs";
-
+//React
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
+
+//Scripts
+import { exportarParaExcel } from "../scripts/Export";
+import { clientMapping } from "../utils/MapaClientes";
+
+//Images
+import seta from "../images/seta.png";
+import logo from '../images/icone_logo.png'
 
 function Planilha() {
   const [data, setData] = useState([]); // Para armazenar os dados carregados da planilha
 
+  //UseState do Select
+  const [option, setOption] = useState("");
+
+  //HandleChange do Select
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setOption(value);
+  };
+
+  //Upload do arquivo
   const handleFileUpload = (event) => {
     const file = event.target.files[0]; // Captura o arquivo selecionado pelo usuário
     const reader = new FileReader(); // Cria um leitor de arquivos
@@ -22,13 +40,6 @@ function Planilha() {
     };
 
     reader.readAsBinaryString(file); // Lê o arquivo como binário
-  };
-
-  //Soma soma cada motorista para operador
-  const somaOp = (data) => {
-    return data.map((item) => ({
-      result: (5.2 / 30) * item["Dias calculado"],
-    }));
   };
 
   //Formatar data
@@ -51,19 +62,6 @@ function Planilha() {
       }
     }
   };
-  //Processa dados para exportar
-  const exportProcess = (data) => {
-    console.log(data);
-    return data.map((item) => ({
-      Nome: item.Nome,
-      CPF: formatCPF(item["CPF"]),
-      Dias: item["Dias calculado"],
-      Valor: (52 / 30) * item["Dias calculado"].toFixed(2),
-      Admissão: !isNaN(item.Admissão) ? excelToDate(item.Admissão) : "",
-      Demissão: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
-      Observação: "",
-    }));
-  };
 
   //Processa dados para o site
   const processarDados = (data) => {
@@ -78,195 +76,43 @@ function Planilha() {
       empresa: item.Empresa || "Não informado",
       Valor_Mot_Empresa: 52,
       valorTotalEmpresa: (52 / 30) * (item["Dias calculado"] || 0),
+      valorOp: (9.5 / 30) * (item["Dias calculado"] || 0),
     }));
   };
 
+  const processarDadosFiltrados = () => {
+    if (!option) return processarDados(data); // Retorna todos os dados se nenhuma opção for selecionada
+
+    const clientes = clientMapping[option];
+    if (!clientes) return []; // Retorna vazio se não houver correspondência
+
+    // Verifica se o valor é string ou array e filtra os dados
+    return processarDados(data).filter((item) => {
+      if (Array.isArray(clientes)) {
+        return clientes.some((cliente) => item.empresa.includes(cliente));
+      }
+      return item.empresa.includes(clientes);
+    });
+  };
+
   //Soma Total pagar ao Wagner
-  const somaValorW = processarDados(data)
+  const somaValorW = processarDadosFiltrados(data)
     .reduce((soma, item) => soma + item.valorTotal, 0)
     .toFixed(2);
 
   //Soma Total cobrar clientes
-  const somaValorC = processarDados(data)
+  const somaValorC = processarDadosFiltrados(data)
     .reduce((soma, item) => soma + item.valorTotalEmpresa, 0)
     .toFixed(2);
 
   //Soma total pagar ao operador
-  const somaValorO = somaOp(data)
-    .reduce((soma, item) => soma + item.result, 0)
+  const somaValorO = processarDadosFiltrados(data)
+    .reduce((soma, item) => soma + item.valorOp, 0)
     .toFixed(2);
-  console.log(somaValorO);
-
-  //Exporta a planilha
-  const exportarParaExcel = () => {
-    const workbook = new ExcelJS.Workbook();
-    const worksheet = workbook.addWorksheet("Faturamento");
-
-    // Edita as colunas e o titulo de cada uma
-    worksheet.columns = [
-        { header: "Nome", key: "Nome", width: 45 },
-        { header: "CPF", key: "CPF", width: 15 },
-        { header: "Dias", key: "Dias", width: 6 },
-        { header: "Valor", key: "Valor", width: 8 },
-        { header: "Admissão", key: "Admissão", width: 15 },
-        { header: "Demissão", key: "Demissão", width: 15 },
-        { header: "Observação", key: "Observação", width: 15 },
-      ];
-  
-
-    //Adicoonando Titulo e mesclando
-    worksheet.mergeCells("A1:G1");
-    const title = worksheet.getCell("A1");
-    title.value = "Faturamento referente a"; // Texto do título
-    title.alignment = { horizontal: "center", vertical: "middle" }; // Alinhamento no centro
-    title.font = { bold: true, size: 20 }; // Fonte em negrito e tamanho maior
-    title.fill = {
-      type: "pattern",
-      pattern: "solid",
-      fgColor: { argb: "006CE3" }, // Cor cinza claro
-    };
-
-    
-    //Add titulo Nome
-    const titleNome = worksheet.getCell("A2")
-    titleNome.value = "Nome"
-    titleNome.alignment = { horizontal: "center", vertical: "middle" };
-    titleNome.font = { bold: true, size: 12 }
-    titleNome.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-    
-
-    //Add titulo Nome
-    const titleCPF = worksheet.getCell("B2")
-    titleCPF.value = "C.P.F"
-    titleCPF.alignment = { horizontal: "center", vertical: "middle" };
-    titleCPF.font = { bold: true, size: 12 }
-    titleCPF.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-
-    //Add titulo Nome
-    const titleDias = worksheet.getCell("C2")
-    titleDias.value = "Dias"
-    titleDias.alignment = { horizontal: "center", vertical: "middle" };
-    titleDias.font = { bold: true, size: 12 }
-    titleDias.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-
-    //Add titulo Nome
-    const titleValor = worksheet.getCell("D2")
-    titleValor.value = "Valor R$"
-    titleValor.alignment = { horizontal: "center", vertical: "middle" };
-    titleValor.font = { bold: true, size: 12 }
-    titleValor.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-
-    //Add titulo Nome
-    const titleAd = worksheet.getCell("E2")
-    titleAd.value = "Admissão"
-    titleAd.alignment = { horizontal: "center", vertical: "middle" };
-    titleAd.font = { bold: true, size: 12 }
-    titleAd.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-
-    //Add titulo Nome
-    const titleDm = worksheet.getCell("F2")
-    titleDm.value = "Demissão"
-    titleDm.alignment = { horizontal: "center", vertical: "middle" };
-    titleDm.font = { bold: true, size: 12 }
-    titleDm.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-
-    const titleObs = worksheet.getCell("G2")
-    titleObs.value = "Observação"
-    titleObs.alignment = { horizontal: "center", vertical: "middle" };
-    titleObs.font = { bold: true, size: 12 }
-    titleObs.fill = {
-        type: "pattern",
-        pattern: "solid",
-        fgColor: { argb: "F0F0F0" }, // Cor de fundo do cabeçalho (cinza claro)
-      };
-
-    // Aplica estilo ao cabeçalho (linha 2)
-    const headerRow = worksheet.getRow(2);
-    headerRow.font = { bold: true }; // Negrito
-    headerRow.alignment = { horizontal: "center" }
-    ; // Centraliza o texto
-    
-
-    //Adiciona os dados a planilha
-    const rows = exportProcess(data);
-    worksheet.addRows(rows);
-
-    // Configura a coluna 'Valor' com formato de duas casas decimais
-    worksheet.getColumn("Valor").numFmt = "0.00";
-
-    //Calcula o total
-    const totalFatura = rows.reduce((v, item) => v + item.Valor, 0).toFixed(2);
-    const ultimaLinha = rows.length + 2; //Ultima linha adicionada
-
-    //Adicionar texto a ultima linha e mesclar
-    worksheet.mergeCells(`A${ultimaLinha}:F${ultimaLinha}`);
-    const titleFatura = worksheet.getCell(`A${ultimaLinha}`);
-    titleFatura.value = "Total da fatura";
-    titleFatura.alignment = { horizontal: "left", vertical: "middle" };
-    titleFatura.font = { bold: true, size: 16 }; // Fonte em negrito e tamanho maior
-    titleFatura.fill = {
-      type: "pattern",
-      pattern: "solid",
-      fgColor: { argb: "006CE3" }, // Cor cinza claro
-    };
-
-    const total = worksheet.getCell(`G${ultimaLinha}`);
-    total.value = parseFloat(totalFatura);
-    total.alignment = { horizontal: "center", vertical: "middle" };
-    total.font = { bold: true, size: 16 }; // Fonte em negrito e tamanho maior
-    total.fill = {
-      type: "pattern",
-      pattern: "solid",
-      fgColor: { argb: "006CE3" }, // Cor cinza claro
-    };
-    worksheet.eachRow((row, rowNumber) => {
-        row.eachCell((cell) => {
-          cell.border = {
-            top: { style: "thin" },
-            left: { style: "thin" },
-            bottom: { style: "thin" },
-            right: { style: "thin" },
-          };
-        });
-      });
-    // Salvar o arquivo
-    workbook.xlsx.writeBuffer().then((buffer) => {
-      const blob = new Blob([buffer], {
-        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "faturamento.xlsx";
-      link.click();
-    });
-  };
 
   return (
     <div className={styles.container}>
+      <img src={logo} alt="Likizoa" className={styles.logo} />
       <h1 className={styles.title}>Faturamento</h1>
       <input
         className={styles.input}
@@ -292,6 +138,62 @@ function Planilha() {
             <p>
               Valor Cliente: <span>R$ {somaValorC}</span>
             </p>
+            <select
+              className={styles.select_cliente}
+              name="opcCliente"
+              id="opcCliente"
+              value={option}
+              onChange={handleChange}
+            >
+              <option value="" disabled>
+                Selecione um cliente
+              </option>
+              <option value="barcellos">Barcellos</option>
+              <option value="baroncello">Baroncello</option>
+              <option value="bc">BC</option>
+              <option value="beviani">Beviani</option>
+              <option value="betel">Betel</option>
+              <option value="dumaszak">Dumaszak</option>
+              <option value="eil">EIL</option>
+              <option value="evandro">Evandro</option>
+              <option value="froes">Froes</option>
+              <option value="gh">GH</option>
+              <option value="gbs">GBS</option>
+              <option value="gtl">GTL</option>
+              <option value="hr">HR</option>
+              <option value="jomar">Jomar</option>
+              <option value="lf">LF Cargo</option>
+              <option value="mge">MGE</option>
+              <option value="mwm">MWM</option>
+              <option value="nardi">Nardi</option>
+              <option value="paganini">Paganini</option>
+              <option value="pedrao">Pedrão</option>
+              <option value="picoli">Picoli</option>
+              <option value="portolog">Portolog</option>
+              <option value="portoex">Portoex</option>
+              <option value="rtm">RTM</option>
+              <option value="saff">Saff</option>
+              <option value="sanmartino">San Martino</option>
+              <option value="semfronteiras">Sem Fronteiras</option>
+              <option value="simas">Simas</option>
+              <option value="smlog">SmLog</option>
+              <option value="tac">Tac</option>
+              <option value="transcosta">Transcosta</option>
+              <option value="transmoor">Transmoor</option>
+              <option value="vibelog">Vibelog</option>
+              <option value="viplog">Viplog</option>
+              <option value="werner">Werner</option>
+            </select>
+            <div className={styles.drop}>
+              <img src={seta} alt="Down" />
+            </div>
+
+            <button
+            className={styles.export_button}
+            onClick={() => exportarParaExcel(processarDadosFiltrados(), option)}
+          >
+            Excel
+          </button>
           </div>
           <div className={styles.planilha}>
             <div className={styles.header}>
@@ -306,7 +208,7 @@ function Planilha() {
               <p className={styles.total}>Valor Total</p>
               <p className={styles.empresa}>Empresa</p>
             </div>
-            {processarDados(data).map((item, index) => (
+            {processarDadosFiltrados().map((item, index) => (
               <div className={styles.header} key={index}>
                 <p className={styles.dias}>{item.Dias_Trabalhados}</p>
                 <p className={styles.valor_mot}>{item.Valor_Mot}</p>
@@ -331,13 +233,10 @@ function Planilha() {
               </div>
             ))}
           </div>
-          <button className={styles.custom_button} onClick={exportarParaExcel}>
-            Exportar para Excel
-          </button>
+          
         </div>
       )}
     </div>
   );
 }
-
 export default Planilha;
