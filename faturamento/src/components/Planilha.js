@@ -102,6 +102,18 @@ function Planilha() {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Faturamento");
 
+    // Edita as colunas e o titulo de cada uma
+    worksheet.columns = [
+        { header: "Nome", key: "Nome", width: 45 },
+        { header: "CPF", key: "CPF", width: 15 },
+        { header: "Dias", key: "Dias", width: 6 },
+        { header: "Valor", key: "Valor", width: 8 },
+        { header: "Admissão", key: "Admissão", width: 15 },
+        { header: "Demissão", key: "Demissão", width: 15 },
+        { header: "Observação", key: "Observação", width: 15 },
+      ];
+  
+
     //Adicoonando Titulo e mesclando
     worksheet.mergeCells("A1:G1");
     const title = worksheet.getCell("A1");
@@ -114,17 +126,7 @@ function Planilha() {
       fgColor: { argb: "006CE3" }, // Cor cinza claro
     };
 
-    // Edita as colunas e o titulo de cada uma
-    worksheet.columns = [
-      { header: "Nome", key: "Nome", width: 45 },
-      { header: "CPF", key: "CPF", width: 15 },
-      { header: "Dias", key: "Dias", width: 6 },
-      { header: "Valor", key: "Valor", width: 8 },
-      { header: "Admissão", key: "Admissão", width: 15 },
-      { header: "Demissão", key: "Demissão", width: 15 },
-      { header: "Observação", key: "Observação", width: 15 },
-    ];
-
+    
     //Add titulo Nome
     const titleNome = worksheet.getCell("A2")
     titleNome.value = "Nome"
