@@ -7,6 +7,7 @@ export const clientMapping = {
   ],
   beviani: ["BEVIANI TRANSPORTES"],
   betel: ["BETEL TRANSPORTES DE CONTAINERS LTDA"],
+  comex: ["COMEX CARGO SOLUCOES EM LOGISTICA LTDA"],
   dumaszak: ["DUMASZAK COMERCIO DE DERIVADOS DE PETROLEO LT"],
   eil: [
     "E I L TRANSPORTES EIRELI ME",
@@ -44,6 +45,7 @@ export const clientMapping = {
   ],
   saff: ["SAFF TRANSPORTES"],
   samartino: ["SAN MARTINO"],
+  santateresinha: ["SANTA TERESINHA TRANSPORTES."],
   semfronteiras: ["SEM FRONTEIRAS TRANSPORTES EIRELI ME"],
   simas: ["RODO SIMAS LOGISTICA LTDA", "ITAREEFER TRANSPORTES EIRELI"],
   smlog: ["SMLOG"],

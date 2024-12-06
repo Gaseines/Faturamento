@@ -2,30 +2,30 @@
 import styles from "./Planilha.module.css";
 
 //React
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as XLSX from "xlsx";
 
 //Scripts
 import { exportarParaExcel } from "../scripts/Export";
-import { clientMapping } from "../utils/MapaClientes";
 
 //Images
 import seta from "../images/seta.png";
-import logo from '../images/icone_logo.png'
+import logo from "../images/icone_logo.png";
+
+//Dados
+import { clientMapping } from "../utils/MapaClientes";
+import { ValoresClientes } from "../utils/ValoresCliente";
 
 function Planilha() {
   const [data, setData] = useState([]); // Para armazenar os dados carregados da planilha
 
-  //Valor cobrado do cliente
-  const [valorCliente , setValorCliente] = useState(52)
-
   //UseState do Select
-  const [option, setOption] = useState("");
+  const [optionCliente, setOptionCliente] = useState("");
 
   //HandleChange do Select
   const handleChange = (e) => {
     const value = e.target.value;
-    setOption(value);
+    setOptionCliente(value);
   };
 
   //Upload do arquivo
@@ -66,45 +66,32 @@ function Planilha() {
     }
   };
 
-  //Valida para pagar o valor correto do cliente
-  // const validValorCliente = () => {
-  //   if(option === "paganini"){
-  //     setValorCliente(50)
-  //   }else if(option === "bc"){
-  //     setValorCliente(30)
-  //   }
-  //     else{
-  //     setValorCliente(52)
-  //   }
-    
-  // }
-
-  // useEffect(() =>{
-  //   validValorCliente()
-  //   console.log(valorCliente)
-  // }, [option])
-
   //Processa dados para o site
   const processarDados = (data) => {
-    return data.map((item) => ({
-      Dias_Trabalhados: item["Dias calculado"] || 0,
-      Valor_Mot: 7,
-      valorTotal: (7 / 30) * (item["Dias calculado"] || 0),
-      nome: item.Nome,
-      cpf: formatCPF(item["CPF"]),
-      admissao: !isNaN(item.Admissão) ? excelToDate(item.Admissão) : "",
-      demissao: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
-      empresa: item.Empresa || "Não informado",
-      Valor_Mot_Empresa: 52,
-      valorTotalEmpresa: (valorCliente / 30) * (item["Dias calculado"] || 0),
-      valorOp: (9.5 / 30) * (item["Dias calculado"] || 0),
-    }));
+    return data.map((item) => {
+      const empresa = item.Empresa;
+      const valCliente = ValoresClientes[empresa] || 52; //Pega o valor de cada cliente, valor padrão 52
+
+      return {
+        Dias_Trabalhados: item["Dias calculado"] || 0,
+        Valor_Mot: 7,
+        valorTotal: (7 / 30) * (item["Dias calculado"] || 0),
+        nome: item.Nome,
+        cpf: formatCPF(item["CPF"]),
+        admissao: !isNaN(item.Admissão) ? excelToDate(item.Admissão) : "",
+        demissao: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
+        empresa: item.Empresa || "Não informado",
+        Valor_Mot_Empresa: valCliente,
+        valorTotalEmpresa: (valCliente / 30) * (item["Dias calculado"] || 0),
+        valorOp: (9.5 / 30) * (item["Dias calculado"] || 0),
+      };
+    });
   };
 
   const processarDadosFiltrados = () => {
-    if (!option) return processarDados(data); // Retorna todos os dados se nenhuma opção for selecionada
+    if (!optionCliente) return processarDados(data); // Retorna todos os dados se nenhuma opção for selecionada
 
-    const clientes = clientMapping[option];
+    const clientes = clientMapping[optionCliente];
     if (!clientes) return []; // Retorna vazio se não houver correspondência
 
     // Verifica se o valor é string ou array e filtra os dados
@@ -163,7 +150,7 @@ function Planilha() {
               className={styles.select_cliente}
               name="opcCliente"
               id="opcCliente"
-              value={option}
+              value={optionCliente}
               onChange={handleChange}
             >
               <option value="" disabled>
@@ -174,6 +161,7 @@ function Planilha() {
               <option value="bc">BC</option>
               <option value="beviani">Beviani</option>
               <option value="betel">Betel</option>
+              <option value="comex">Comexcargo</option>
               <option value="dumaszak">Dumaszak</option>
               <option value="eil">EIL</option>
               <option value="evandro">Evandro</option>
@@ -195,6 +183,7 @@ function Planilha() {
               <option value="rtm">RTM</option>
               <option value="saff">Saff</option>
               <option value="sanmartino">San Martino</option>
+              <option value="santateresinha">Santa Teresinha</option>
               <option value="semfronteiras">Sem Fronteiras</option>
               <option value="simas">Simas</option>
               <option value="smlog">SmLog</option>
@@ -210,11 +199,13 @@ function Planilha() {
             </div>
 
             <button
-            className={styles.export_button}
-            onClick={() => exportarParaExcel(processarDadosFiltrados(), option)}
-          >
-            Excel
-          </button>
+              className={styles.export_button}
+              onClick={() =>
+                exportarParaExcel(processarDadosFiltrados(), optionCliente)
+              }
+            >
+              Excel
+            </button>
           </div>
           <div className={styles.planilha}>
             <div className={styles.header}>
@@ -254,7 +245,6 @@ function Planilha() {
               </div>
             ))}
           </div>
-          
         </div>
       )}
     </div>
