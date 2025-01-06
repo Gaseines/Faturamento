@@ -45,7 +45,7 @@ export const clientMapping = {
     "Terceiro",
   ],
   saff: ["SAFF TRANSPORTES"],
-  samartino: ["SAN MARTINO"],
+  sanmartino: ["SAN MARTINO"],
   santateresinha: ["SANTA TERESINHA TRANSPORTES."],
   semfronteiras: ["SEM FRONTEIRAS TRANSPORTES EIRELI ME"],
   simas: ["RODO SIMAS LOGISTICA LTDA", "ITAREEFER TRANSPORTES EIRELI"],
