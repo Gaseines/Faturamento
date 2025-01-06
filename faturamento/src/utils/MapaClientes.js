@@ -51,7 +51,7 @@ export const clientMapping = {
   simas: ["RODO SIMAS LOGISTICA LTDA", "ITAREEFER TRANSPORTES EIRELI"],
   smlog: ["SMLOG"],
   tac: ["TAC TRANSPORTES E ARMAZENS GERAIS LTDA."],
-  transcosta: ["COSTATRANSPORTES", "LFP COSTA TRANSPORTES EIRELI - ME"],
+  transcosta: ["COSTATRANSPORTES"],
   transmoor: ["Transmoor - Transporte RodoviÃ¡rio de Cargas"],
   vibelog: ["VIBE LOG TRANSPORTES"],
   viplog: ["VIPLOG", "VIP COMERCIO DE PLÃSTICOS EIRELI"],
