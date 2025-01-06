@@ -22,7 +22,7 @@ function Planilha() {
   //Define o Operador para calcular quanto pagara para cada um
   const [operadorValue, setOperadorValue] = useState("");
   //Define o calculo do valor por operador
-  const [valorOperador, setValorOperador] = useState("")
+  const [valorOperador, setValorOperador] = useState("");
 
   //UseState do Select
   const [optionCliente, setOptionCliente] = useState("");
@@ -91,22 +91,20 @@ function Planilha() {
       optionCliente === "picoli" ||
       optionCliente === "froes"
     ) {
-      setOperadorValue("herbert")
+      setOperadorValue("herbert");
     }
   }, [optionCliente, operadorValue]);
 
   //Define o calculo que será feito para valor de operador
- useEffect(() => {
-  if(operadorValue === "maria"){
-    setValorOperador((11.25 / 30));
-  }else if (operadorValue === "herbert"){
-    setValorOperador((8.5 / 30));
-  }else {
-    setValorOperador((9.5 / 30));
-  }
-
- }, [operadorValue])
-
+  useEffect(() => {
+    if (operadorValue === "maria") {
+      setValorOperador(11.25 / 30);
+    } else if (operadorValue === "herbert") {
+      setValorOperador(8.5 / 30);
+    } else {
+      setValorOperador(9.5 / 30);
+    }
+  }, [operadorValue]);
 
   //Processa dados para o site
   const processarDados = (data) => {

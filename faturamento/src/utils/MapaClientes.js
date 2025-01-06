@@ -35,7 +35,7 @@ export const clientMapping = {
   nardi: ["TRANSPORTADORA NARDI LTDA"],
   paganini: ["TRANSPORTES PAGANINI LTDA - EPP"],
   pedrao: ["PEDRAO TRANSPORTE DE CARGAS LTDA", "DJONAS CIDCLEI FERNANDES ME"],
-  picoli: ["ODAIR JOSÉ PICOLI E CIA LTDA"],
+  picoli: ["ODAIR JOSÃ‰ PICOLI E CIA LTDA"],
   portolog: ["PORTOLOG TRANSPORTES"],
   portoex: ["PORTOEX LOGISTICA LTDA"],
   rtm: [
