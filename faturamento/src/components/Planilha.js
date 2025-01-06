@@ -2,7 +2,7 @@
 import styles from "./Planilha.module.css";
 
 //React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 
 //Scripts
@@ -18,6 +18,11 @@ import { ValoresClientes } from "../utils/ValoresCliente";
 
 function Planilha() {
   const [data, setData] = useState([]); // Para armazenar os dados carregados da planilha
+
+  //Define o Operador para calcular quanto pagara para cada um
+  const [operadorValue, setOperadorValue] = useState("");
+  //Define o calculo do valor por operador
+  const [valorOperador, setValorOperador] = useState("")
 
   //UseState do Select
   const [optionCliente, setOptionCliente] = useState("");
@@ -66,6 +71,43 @@ function Planilha() {
     }
   };
 
+  //Define os clientes da Maria e do Herbert
+  useEffect(() => {
+    if (
+      optionCliente === "barcellos" ||
+      optionCliente === "dumaszak" ||
+      optionCliente === "portolog" ||
+      optionCliente === "werner" ||
+      optionCliente === "mwm" ||
+      optionCliente === "eil" ||
+      optionCliente === "gh"
+    ) {
+      setOperadorValue("maria");
+    } else if (
+      optionCliente === "viplog" ||
+      optionCliente === "gbs" ||
+      optionCliente === "hr" ||
+      optionCliente === "nardi" ||
+      optionCliente === "picoli" ||
+      optionCliente === "froes"
+    ) {
+      setOperadorValue("herbert")
+    }
+  }, [optionCliente, operadorValue]);
+
+  //Define o calculo que será feito para valor de operador
+ useEffect(() => {
+  if(operadorValue === "maria"){
+    setValorOperador((11.25 / 30));
+  }else if (operadorValue === "herbert"){
+    setValorOperador((8.5 / 30));
+  }else {
+    setValorOperador((9.5 / 30));
+  }
+
+ }, [operadorValue])
+
+
   //Processa dados para o site
   const processarDados = (data) => {
     return data.map((item) => {
@@ -83,7 +125,7 @@ function Planilha() {
         empresa: item.Empresa || "Não informado",
         Valor_Mot_Empresa: valCliente,
         valorTotalEmpresa: (valCliente / 30) * (item["Dias calculado"] || 0),
-        valorOp: (9.5 / 30) * (item["Dias calculado"] || 0),
+        valorOp: valorOperador * (item["Dias calculado"] || 0),
       };
     });
   };
