@@ -35,6 +35,7 @@ export const ValoresClientes = {
 
   //************************---48---******************* */
   "SAFF TRANSPORTES": 48,
+  "Transmoor - Transporte RodoviÃ¡rio de Cargas": 48,
 
   //************************---45---******************* */
   COSTATRANSPORTES: 45,
