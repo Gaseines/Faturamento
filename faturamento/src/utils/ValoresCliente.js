@@ -20,7 +20,7 @@ export const ValoresClientes = {
   //---------------------------------------------------------
 
   "TRANSPORTADORA NARDI LTDA": 55,
-  "ODAIR JOSÉ PICOLI E CIA LTDA": 55,
+  "ODAIR JOSÃ‰ PICOLI E CIA LTDA": 55,
   "SANTA TERESINHA TRANSPORTES.": 55,
   SMLOG: 55,
 
