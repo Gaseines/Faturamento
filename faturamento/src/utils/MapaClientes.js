@@ -52,7 +52,7 @@ export const clientMapping = {
   smlog: ["SMLOG"],
   tac: ["TAC TRANSPORTES E ARMAZENS GERAIS LTDA."],
   transcosta: ["COSTATRANSPORTES"],
-  transmoor: ["Transmoor - Transporte RodoviÃ¡rio de Cargas"],
+  transmoor: ["Transmoor - Transporte Rodoviario de Cargas"],
   vibelog: ["VIBE LOG TRANSPORTES"],
   viplog: ["VIPLOG", "VIP COMERCIO DE PLASTICOS EIRELI"],
   werner: ["ANDRELINO WERNER TRANSPORTES LTDA"],
