@@ -54,6 +54,6 @@ export const clientMapping = {
   transcosta: ["COSTATRANSPORTES"],
   transmoor: ["Transmoor - Transporte RodoviÃ¡rio de Cargas"],
   vibelog: ["VIBE LOG TRANSPORTES"],
-  viplog: ["VIPLOG", "VIP COMERCIO DE PLÃSTICOS EIRELI"],
+  viplog: ["VIPLOG", "VIP COMERCIO DE PLASTICOS EIRELI"],
   werner: ["ANDRELINO WERNER TRANSPORTES LTDA"],
 };
