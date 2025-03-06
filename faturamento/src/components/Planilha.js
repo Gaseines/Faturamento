@@ -80,18 +80,18 @@ function Planilha() {
       optionCliente === "werner" ||
       optionCliente === "mwm" ||
       optionCliente === "eil" ||
-      optionCliente === "gh"
+      optionCliente === "gh" ||
+      optionCliente === "froes" ||
+      optionCliente === "nardi" ||
+      optionCliente === "viplog" ||
+      optionCliente === "hr"
     ) {
       setOperadorValue("maria");
     } else if (
-      optionCliente === "viplog" ||
-      optionCliente === "gbs" ||
-      optionCliente === "hr" ||
-      optionCliente === "nardi" ||
-      optionCliente === "picoli" ||
-      optionCliente === "froes"
+      optionCliente === "picoli" || 
+      optionCliente === "gbs"
     ) {
-      setOperadorValue("herbert");
+      setOperadorValue("marcy");
     }
   }, [optionCliente, operadorValue]);
 
@@ -99,8 +99,8 @@ function Planilha() {
   useEffect(() => {
     if (operadorValue === "maria") {
       setValorOperador(11.25 / 30);
-    } else if (operadorValue === "herbert") {
-      setValorOperador(8.5 / 30);
+    } else if (operadorValue === "marcy") {
+      setValorOperador(11.25 / 30);
     } else {
       setValorOperador(9.5 / 30);
     }
@@ -202,6 +202,7 @@ function Planilha() {
               <option value="beviani">Beviani</option>
               <option value="betel">Betel</option>
               <option value="comex">Comexcargo</option>
+              <option value="comavix">Comavix</option>
               <option value="dumaszak">Dumaszak</option>
               <option value="eil">EIL</option>
               <option value="evandro">Evandro</option>
@@ -246,6 +247,7 @@ function Planilha() {
             >
               Excel
             </button>
+            
           </div>
           <div className={styles.planilha}>
             <div className={styles.header}>
