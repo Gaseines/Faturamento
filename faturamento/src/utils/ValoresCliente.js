@@ -17,6 +17,7 @@ export const ValoresClientes = {
   "ITACIBALOG TRANSPORTE LTDA 48.159.624/0001-82": 55,
   "MVR LOGISTICA - 52.347.618/0001-26": 55,
   "MVR Log 54.157.062/0001-30": 55,
+  "PRIME LOG TRANSPORTES LTDA": 55,
   TERCEIRO: 55,
   //---------------------------------------------------------
 
