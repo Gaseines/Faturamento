@@ -1,4 +1,5 @@
 export const clientMapping = {
+  aj: ["TRANSPORTADORA AJ LTDA"],
   barcellos: ["Barcellos"],
   baroncello: ["TRANSPORTADORA BARONCELLO LTDA."],
   bc: [
@@ -24,6 +25,11 @@ export const clientMapping = {
   jomar: ["JOMAR TRANSPORTES LTDA"],
   lf: ["LF CARGO TRANSPORTES RODOVIARIOS DE CARGAS"],
   mge: ["MGE TRANSPORTES LTDA"],
+  mvrl: ["MVR LOG LTDA"],
+  mvrt: ["MVR TRANSPORTES LTDA 48.159.434/0001-65"],
+  wagner: ["WAGNER TRANSPORTES - 17.506.455/0001-86"],
+  primelog: ["PRIME LOG TRANSPORTES LTDA"],
+  itaciba: ["ITACIBALOG TRANSPORTE LTDA 48.159.624/0001-82"],
   mwm: [
     "MWM TRANSPORTES - 29.816.009/0001-57",
     "WAGNER TRANSPORTES - 17.506.455/0001-86",
@@ -32,7 +38,6 @@ export const clientMapping = {
     "MVR LOGISTICA - 52.347.618/0001-26",
     "MVR LOG LTDA",
     "PRIME LOG TRANSPORTES LTDA",
-    "TERCEIRO",
   ],
   nardi: ["TRANSPORTADORA NARDI LTDA"],
   paganini: ["TRANSPORTES PAGANINI LTDA - EPP"],
@@ -46,7 +51,9 @@ export const clientMapping = {
     "ALILOG TRANSPORTES",
     "Terceiro",
   ],
-  saff: ["SAFF TRANSPORTES"],
+  saff_fortaleza: ["SAFF TRANSPORTES FORTALEZA"],
+  saff_navegantes: ["SAFF TRANSPORTES NAVEGANTES"],
+  saff_santos: ["SAFF TRANSPORTES SANTOS"],
   sanmartino: ["SAN MARTINO"],
   santateresinha: ["SANTA TERESINHA TRANSPORTES."],
   semfronteiras: ["SEM FRONTEIRAS TRANSPORTES EIRELI ME"],

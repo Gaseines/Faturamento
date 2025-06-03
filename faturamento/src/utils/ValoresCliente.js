@@ -9,6 +9,7 @@ export const ValoresClientes = {
   "H R TRANSPORTES": 55,
   "JOMAR TRANSPORTES LTDA": 55,
   "COMAVIX ARMAZENS GERAIS LTDA": 55,
+  "TRANSPORTADORA AJ LTDA":55,
 
   //MWM------------------------------------------------------
   "MWM TRANSPORTES - 29.816.009/0001-57": 55,
@@ -36,7 +37,9 @@ export const ValoresClientes = {
   "SAN MARTINO": 50,
 
   //************************---48---******************* */
-  "SAFF TRANSPORTES": 48,
+  "SAFF TRANSPORTES FORTALEZA": 48,
+  "SAFF TRANSPORTES NAVEGANTES": 48,
+  "SAFF TRANSPORTES SANTOS": 48,
   "Transmoor - Transporte Rodoviario de Cargas": 48,
 
   //************************---45---******************* */

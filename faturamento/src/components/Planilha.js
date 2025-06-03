@@ -196,6 +196,7 @@ function Planilha() {
               <option value="" disabled>
                 Selecione um cliente
               </option>
+              <option value="aj">AJ Transportes</option>
               <option value="barcellos">Barcellos</option>
               <option value="baroncello">Baroncello</option>
               <option value="bc">BC</option>
@@ -215,6 +216,11 @@ function Planilha() {
               <option value="lf">LF Cargo</option>
               <option value="mge">MGE</option>
               <option value="mwm">MWM</option>
+              <option value="mvrl">MVR LOG</option>
+              <option value="mvrt">MVR Transportes</option>
+              <option value="wagner">Wagner Transportes</option>
+              <option value="primelog">Prime Log</option>
+              <option value="itaciba">Itaciba Log</option>
               <option value="nardi">Nardi</option>
               <option value="paganini">Paganini</option>
               <option value="pedrao">Pedrão</option>
@@ -222,7 +228,9 @@ function Planilha() {
               <option value="portolog">Portolog</option>
               <option value="portoex">Portoex</option>
               <option value="rtm">RTM</option>
-              <option value="saff">Saff</option>
+              <option value="saff_fortaleza">Saff Fortaleza</option>
+              <option value="saff_navegantes">Saff Navegantes</option>
+              <option value="saff_santos">Saff Santos</option>
               <option value="sanmartino">San Martino</option>
               <option value="santateresinha">Santa Teresinha</option>
               <option value="semfronteiras">Sem Fronteiras</option>
