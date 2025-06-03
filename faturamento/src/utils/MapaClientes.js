@@ -9,7 +9,9 @@ export const clientMapping = {
   ],
   beviani: ["BEVIANI TRANSPORTES"],
   betel: ["BETEL TRANSPORTES DE CONTAINERS LTDA"],
-  comex: ["COMEX CARGO SOLUCOES EM LOGISTICA LTDA"],
+  comex: ["COMEX CARGO SOLUCOES EM LOGISTICA LTDA",
+    "BRS Transportes e LogÃ­stica LTDA"
+  ],
   comavix: ["COMAVIX ARMAZENS GERAIS LTDA"],
   dumaszak: ["DUMASZAK COMERCIO DE DERIVADOS DE PETROLEO LT"],
   eil: [
