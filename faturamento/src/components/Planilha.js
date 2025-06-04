@@ -97,6 +97,7 @@ function Planilha() {
 
   //Define o calculo que será feito para valor de operador
   useEffect(() => {
+    setValorOperador(0)
     if (operadorValue === "maria") {
       setValorOperador(11.25 / 30);
     } else if (operadorValue === "marcy") {
@@ -242,6 +243,7 @@ function Planilha() {
               <option value="vibelog">Vibelog</option>
               <option value="viplog">Viplog</option>
               <option value="werner">Werner</option>
+              <option value="wl">W & L Transportes</option>
             </select>
             <div className={styles.drop}>
               <img src={seta} alt="Down" />

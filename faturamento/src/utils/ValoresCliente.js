@@ -10,6 +10,7 @@ export const ValoresClientes = {
   "JOMAR TRANSPORTES LTDA": 55,
   "COMAVIX ARMAZENS GERAIS LTDA": 55,
   "TRANSPORTADORA AJ LTDA":55,
+  "W&L Transportes LTDA":55,
 
   //MWM------------------------------------------------------
   "MWM TRANSPORTES - 29.816.009/0001-57": 55,

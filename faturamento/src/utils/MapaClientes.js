@@ -67,4 +67,5 @@ export const clientMapping = {
   vibelog: ["VIBE LOG TRANSPORTES"],
   viplog: ["VIPLOG", "VIP COMERCIO DE PLASTICOS EIRELI"],
   werner: ["ANDRELINO WERNER TRANSPORTES LTDA"],
+  wl: ["W&L Transportes LTDA"],
 };
