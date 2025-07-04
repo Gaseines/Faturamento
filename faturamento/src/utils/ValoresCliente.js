@@ -11,7 +11,13 @@ export const ValoresClientes = {
   "COMAVIX ARMAZENS GERAIS LTDA": 55,
   "TRANSPORTADORA AJ LTDA":55,
   "W&L Transportes LTDA":55,
-
+  "VIP COMERCIO DE PLASTICOS EIRELI":55,
+  "TRANSPORTADORA NARDI LTDA": 55,
+  "ODAIR JOSE PICOLI E CIA LTDA": 55,
+  "SANTA TERESINHA TRANSPORTES.": 55,
+  SMLOG: 55,
+  VIPLOG: 55,
+  "FRAGA TRANSPORTES LTDA":55,
   //MWM------------------------------------------------------
   "MWM TRANSPORTES - 29.816.009/0001-57": 55,
   "WAGNER TRANSPORTES - 17.506.455/0001-86": 55,
@@ -23,15 +29,6 @@ export const ValoresClientes = {
   TERCEIRO: 55,
   //---------------------------------------------------------
 
-  "TRANSPORTADORA NARDI LTDA": 55,
-  "ODAIR JOSÃ‰ PICOLI E CIA LTDA": 55,
-  "SANTA TERESINHA TRANSPORTES.": 55,
-  SMLOG: 55,
-
-  //VipLog ------------------------------------------------
-  VIPLOG: 55,
-  "VIP COMERCIO DE PLÁSTICOS EIRELI": 55,
-  //-------------------------------------------------------
 
   //************************---50---******************* */
   "TRANSPORTADORA BARONCELLO LTDA.": 50,

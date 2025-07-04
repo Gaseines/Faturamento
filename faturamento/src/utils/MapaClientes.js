@@ -10,7 +10,7 @@ export const clientMapping = {
   beviani: ["BEVIANI TRANSPORTES"],
   betel: ["BETEL TRANSPORTES DE CONTAINERS LTDA"],
   comex: ["COMEX CARGO SOLUCOES EM LOGISTICA LTDA",
-    "BRS Transportes e LogÃ­stica LTDA"
+    "BRS TRANSPORTES E LOGISTICA LTDA"
   ],
   comavix: ["COMAVIX ARMAZENS GERAIS LTDA"],
   dumaszak: ["DUMASZAK COMERCIO DE DERIVADOS DE PETROLEO LT"],
@@ -19,8 +19,9 @@ export const clientMapping = {
     "EXPRESSO ITAJAIENSE TRANSPORTES E LOGÃSTICA E",
   ],
   evandro: ["EVANDRO TRANSPORTES"],
+  fraga: ["FRAGA TRANSPORTES LTDA"],
   froes: ["FROES IMPORTACAO E EXPORTACAO LTDA"],
-  gbs: ["GBS - TRANSPORTES E COMERCIO"],
+  gsi: ["GSI TRANSPORTES E COMERCIO LTDA"],
   gh: ["GH TRANSPORTES"],
   gtl: ["GTL OLIVEIRA TRANSPORTADORA"],
   hr: ["H R TRANSPORTES"],
@@ -66,7 +67,8 @@ export const clientMapping = {
   transcosta: ["COSTATRANSPORTES"],
   transmoor: ["Transmoor - Transporte Rodoviario de Cargas"],
   vibelog: ["VIBE LOG TRANSPORTES"],
-  viplog: ["VIPLOG", "VIP COMERCIO DE PLASTICOS EIRELI"],
+  viplog: ["VIPLOG"],
+  eireli: ["VIP COMERCIO DE PLASTICOS EIRELI"],
   werner: ["ANDRELINO WERNER TRANSPORTES LTDA"],
   wl: ["W&L Transportes LTDA"],
 };

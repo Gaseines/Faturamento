@@ -30,6 +30,7 @@ function Planilha() {
   //HandleChange do Select
   const handleChange = (e) => {
     const value = e.target.value;
+    
     setOptionCliente(value);
   };
 
@@ -84,12 +85,14 @@ function Planilha() {
       optionCliente === "froes" ||
       optionCliente === "nardi" ||
       optionCliente === "viplog" ||
-      optionCliente === "hr"
+      optionCliente === "hr",
+      optionCliente === "aj"
     ) {
       setOperadorValue("maria");
     } else if (
       optionCliente === "picoli" || 
-      optionCliente === "gbs"
+      optionCliente === "gbs" ||
+      optionCliente === "fraga"
     ) {
       setOperadorValue("marcy");
     }
@@ -99,10 +102,13 @@ function Planilha() {
   useEffect(() => {
     setValorOperador(0)
     if (operadorValue === "maria") {
+      setValorOperador(0)
       setValorOperador(11.25 / 30);
     } else if (operadorValue === "marcy") {
+      setValorOperador(0)
       setValorOperador(11.25 / 30);
     } else {
+      setValorOperador(0)
       setValorOperador(9.5 / 30);
     }
   }, [operadorValue]);
@@ -208,9 +214,10 @@ function Planilha() {
               <option value="dumaszak">Dumaszak</option>
               <option value="eil">EIL</option>
               <option value="evandro">Evandro</option>
+              <option value="fraga">Fraga Transportes</option>
               <option value="froes">Froes</option>
               <option value="gh">GH</option>
-              <option value="gbs">GBS</option>
+              <option value="gsi">GSI</option>
               <option value="gtl">GTL</option>
               <option value="hr">HR</option>
               <option value="jomar">Jomar</option>
@@ -243,6 +250,7 @@ function Planilha() {
               <option value="transmoor">Transmoor</option>
               <option value="vibelog">Vibelog</option>
               <option value="viplog">Viplog</option>
+              <option value="eireli">Vip Eireli</option>
               <option value="werner">Werner</option>
               <option value="wl">W & L Transportes</option>
             </select>
