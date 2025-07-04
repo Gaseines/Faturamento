@@ -56,6 +56,7 @@ export const clientMapping = {
   saff_fortaleza: ["SAFF TRANSPORTES FORTALEZA"],
   saff_navegantes: ["SAFF TRANSPORTES NAVEGANTES"],
   saff_santos: ["SAFF TRANSPORTES SANTOS"],
+  saff_simoes: ["SAFF TRANSPORTES SIMOES"],
   sanmartino: ["SAN MARTINO"],
   santateresinha: ["SANTA TERESINHA TRANSPORTES."],
   semfronteiras: ["SEM FRONTEIRAS TRANSPORTES EIRELI ME"],

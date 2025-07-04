@@ -41,6 +41,7 @@ export const ValoresClientes = {
   "SAFF TRANSPORTES FORTALEZA": 48,
   "SAFF TRANSPORTES NAVEGANTES": 48,
   "SAFF TRANSPORTES SANTOS": 48,
+  "SAFF TRANSPORTES SIMOES": 48,
   "Transmoor - Transporte Rodoviario de Cargas": 48,
 
   //************************---45---******************* */
