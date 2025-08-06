@@ -2,6 +2,7 @@ export const ValoresClientes = {
   //*******************************---55---******************** */
   Barcellos: 55,
   "BEVIANI TRANSPORTES": 55,
+  "BRS TRANSPORTES E LOGISTICA LTDA": 55,
   "COMEX CARGO SOLUCOES EM LOGISTICA LTDA": 55,
   "EVANDRO TRANSPORTES": 55,
   "FROES IMPORTACAO E EXPORTACAO LTDA": 55,
