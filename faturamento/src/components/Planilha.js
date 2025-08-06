@@ -32,6 +32,8 @@ function Planilha() {
     const value = e.target.value;
     
     setOptionCliente(value);
+    console.log(optionCliente)
+    console.log(operadorValue)
   };
 
   //Upload do arquivo
@@ -85,7 +87,7 @@ function Planilha() {
       optionCliente === "froes" ||
       optionCliente === "nardi" ||
       optionCliente === "viplog" ||
-      optionCliente === "hr",
+      optionCliente === "hr" ||
       optionCliente === "aj"
     ) {
       setOperadorValue("maria");
