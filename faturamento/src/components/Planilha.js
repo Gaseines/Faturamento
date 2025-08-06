@@ -240,7 +240,9 @@ function Planilha() {
               <option value="portoex">Portoex</option>
               <option value="rtm">RTM</option>
               <option value="saff_fortaleza">Saff Fortaleza</option>
+              <option value="saff_porto">Saff Fortaleza Porto</option>
               <option value="saff_navegantes">Saff Navegantes</option>
+              <option value="saff_navegantes">Saff Ipojuca</option>
               <option value="saff_santos">Saff Santos</option>
               <option value="saff_simoes">Saff simoes Filho</option>
               <option value="sanmartino">San Martino</option>
