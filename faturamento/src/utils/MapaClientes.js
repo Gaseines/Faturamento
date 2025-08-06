@@ -63,6 +63,7 @@ export const clientMapping = {
   semfronteiras: ["SEM FRONTEIRAS TRANSPORTES EIRELI ME"],
   simas: ["RODO SIMAS LOGISTICA LTDA", "ITAREEFER TRANSPORTES EIRELI"],
   smlog: ["SMLOG"],
+  sudden: ["Sudden Transportes Ltda"],
   tac: ["TAC TRANSPORTES E ARMAZENS GERAIS LTDA."],
   transcosta: ["COSTATRANSPORTES"],
   transmoor: ["Transmoor - Transporte Rodoviario de Cargas"],

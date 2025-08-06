@@ -19,6 +19,7 @@ export const ValoresClientes = {
   SMLOG: 55,
   VIPLOG: 55,
   "FRAGA TRANSPORTES LTDA":55,
+  "Sudden Transportes Ltda": 55,
   //MWM------------------------------------------------------
   "MWM TRANSPORTES - 29.816.009/0001-57": 55,
   "WAGNER TRANSPORTES - 17.506.455/0001-86": 55,
