@@ -89,7 +89,8 @@ function Planilha() {
       optionCliente === "viplog" ||
       optionCliente === "hr" ||
       optionCliente === "aj" ||
-      optionCliente === "sudden"
+      optionCliente === "sudden" ||
+      optionCliente === "elo"
     ) {
       setOperadorValue("maria");
     } else if (
@@ -121,15 +122,15 @@ function Planilha() {
     return data.map((item) => {
       const empresa = item.Empresa;
       const valCliente = ValoresClientes[empresa] || 52; //Pega o valor de cada cliente, valor padrão 52
-
+      
       return {
         Dias_Trabalhados: item["Dias calculado"] || 0,
         Valor_Mot: 7,
         valorTotal: (7 / 30) * (item["Dias calculado"] || 0),
         nome: item.Nome,
         cpf: formatCPF(item["CPF"]),
-        admissao: !isNaN(item.Admissão) ? excelToDate(item.Admissão) : "",
-        demissao: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
+        admissao: item.Admissão,
+        demissao: item.Demissão === undefined ? "" : item.Demissão,
         empresa: item.Empresa || "Não informado",
         Valor_Mot_Empresa: valCliente,
         valorTotalEmpresa: (valCliente / 30) * (item["Dias calculado"] || 0),
@@ -167,6 +168,7 @@ function Planilha() {
   const somaValorO = processarDadosFiltrados(data)
     .reduce((soma, item) => soma + item.valorOp, 0)
     .toFixed(2);
+
 
   return (
     <div className={styles.container}>
@@ -216,6 +218,7 @@ function Planilha() {
               <option value="comavix">Comavix</option>
               <option value="dumaszak">Dumaszak</option>
               <option value="eil">EIL</option>
+              <option value="elo">ELO</option>
               <option value="evandro">Evandro</option>
               <option value="fraga">Fraga Transportes</option>
               <option value="froes">Froes</option>
@@ -281,7 +284,7 @@ function Planilha() {
               <p className={styles.total}>Valor Total</p>
               <p className={styles.nome}>Nome</p>
               <p className={styles.cpf}>CPF</p>
-              <p className={styles.data}>Amissão</p>
+              <p className={styles.data}>Admissão</p>
               <p className={styles.data}>Demissão</p>
               <p className={styles.valor_mot}>Valor motorista</p>
               <p className={styles.total}>Valor Total</p>

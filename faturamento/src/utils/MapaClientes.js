@@ -18,6 +18,7 @@ export const clientMapping = {
     "E I L TRANSPORTES EIRELI ME",
     "EXPRESSO ITAJAIENSE TRANSPORTES E LOGÃSTICA E",
   ],
+  elo: ["ELO"],
   evandro: ["EVANDRO TRANSPORTES"],
   fraga: ["FRAGA TRANSPORTES LTDA"],
   froes: ["FROES IMPORTACAO E EXPORTACAO LTDA"],
