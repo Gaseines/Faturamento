@@ -90,7 +90,8 @@ function Planilha() {
       optionCliente === "hr" ||
       optionCliente === "aj" ||
       optionCliente === "sudden" ||
-      optionCliente === "elo"
+      optionCliente === "elo" ||
+      optionCliente === "type"
     ) {
       setOperadorValue("maria");
     } else if (
@@ -255,6 +256,7 @@ function Planilha() {
               <option value="smlog">SmLog</option>
               <option value="sudden">Sudden</option>
               <option value="tac">Tac</option>
+              <option value="taype">Taype</option>
               <option value="transcosta">Transcosta</option>
               <option value="transmoor">Transmoor</option>
               <option value="vibelog">Vibelog</option>

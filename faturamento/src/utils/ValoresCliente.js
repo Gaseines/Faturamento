@@ -4,7 +4,6 @@ export const ValoresClientes = {
   "BEVIANI TRANSPORTES": 55,
   "BRS TRANSPORTES E LOGISTICA LTDA": 55,
   "COMEX CARGO SOLUCOES EM LOGISTICA LTDA": 55,
-  "ELO": 55,
   "EVANDRO TRANSPORTES": 55,
   "FROES IMPORTACAO E EXPORTACAO LTDA": 55,
   "GTL OLIVEIRA TRANSPORTADORA": 55,
@@ -21,6 +20,8 @@ export const ValoresClientes = {
   VIPLOG: 55,
   "FRAGA TRANSPORTES LTDA":55,
   "Sudden Transportes Ltda": 55,
+  "ELO": 55,
+  "TAYPE": 55,
   //MWM------------------------------------------------------
   "MWM TRANSPORTES - 29.816.009/0001-57": 55,
   "WAGNER TRANSPORTES - 17.506.455/0001-86": 55,

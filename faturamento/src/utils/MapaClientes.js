@@ -63,6 +63,7 @@ export const clientMapping = {
   smlog: ["SMLOG"],
   sudden: ["Sudden Transportes Ltda"],
   tac: ["TAC TRANSPORTES E ARMAZENS GERAIS LTDA."],
+  taype: ["TAYPE"],
   transcosta: ["COSTATRANSPORTES"],
   transmoor: ["Transmoor - Transporte Rodoviario de Cargas"],
   vibelog: ["VIBE LOG TRANSPORTES"],
