@@ -15,6 +15,7 @@ import logo from "../images/icone_logo.png";
 //Dados
 import { clientMapping } from "../utils/MapaClientes";
 import { ValoresClientes } from "../utils/ValoresCliente";
+import { operatorMapping } from "../utils/MapaOperadores";
 
 function Planilha() {
   const [data, setData] = useState([]); // Para armazenar os dados carregados da planilha
@@ -30,10 +31,10 @@ function Planilha() {
   //HandleChange do Select
   const handleChange = (e) => {
     const value = e.target.value;
-    
+
     setOptionCliente(value);
-    console.log(optionCliente)
-    console.log(operadorValue)
+    console.log(optionCliente);
+    console.log(operadorValue);
   };
 
   //Upload do arquivo
@@ -74,46 +75,55 @@ function Planilha() {
     }
   };
 
-  //Define os clientes da Maria e do Herbert
+  //Define os clientes da Maria e da Marcy
   useEffect(() => {
-    if (
-      optionCliente === "barcellos" ||
-      optionCliente === "dumaszak" ||
-      optionCliente === "portolog" ||
-      optionCliente === "werner" ||
-      optionCliente === "mwm" ||
-      optionCliente === "eil" ||
-      optionCliente === "gh" ||
-      optionCliente === "froes" ||
-      optionCliente === "nardi" ||
-      optionCliente === "viplog" ||
-      optionCliente === "hr" ||
-      optionCliente === "aj" ||
-      optionCliente === "sudden" ||
-      optionCliente === "elo" ||
-      optionCliente === "type"
-    ) {
-      setOperadorValue("maria");
-    } else if (
-      optionCliente === "picoli" || 
-      optionCliente === "gbs" ||
-      optionCliente === "fraga"
-    ) {
-      setOperadorValue("marcy");
+    // if (
+    //   optionCliente === "barcellos" ||
+    //   optionCliente === "dumaszak" ||
+    //   optionCliente === "portolog" ||
+    //   optionCliente === "werner" ||
+    //   optionCliente === "mwm" ||
+    //   optionCliente === "eil" ||
+    //   optionCliente === "gh" ||
+    //   optionCliente === "froes" ||
+    //   optionCliente === "nardi" ||
+    //   optionCliente === "viplog" ||
+    //   optionCliente === "hr" ||
+    //   optionCliente === "aj" ||
+    //   optionCliente === "sudden" ||
+    //   optionCliente === "elo" ||
+    //   optionCliente === "type"
+    // ) {
+    //   setOperadorValue("Maria");
+    // } else if (
+    //   optionCliente === "picoli" ||
+    //   optionCliente === "gbs" ||
+    //   optionCliente === "fraga"
+    // ) {
+    //   setOperadorValue("Marcy");
+    // } else {
+    //   setOperadorValue("")
+    // }
+
+    if(!optionCliente){
+      setOperadorValue("")
     }
+
+    setOperadorValue(operatorMapping[optionCliente] ?? "")
+
   }, [optionCliente, operadorValue]);
 
   //Define o calculo que será feito para valor de operador
   useEffect(() => {
-    setValorOperador(0)
-    if (operadorValue === "maria") {
-      setValorOperador(0)
+    setValorOperador(0);
+    if (operadorValue === "Maria") {
+      setValorOperador(0);
       setValorOperador(11.25 / 30);
-    } else if (operadorValue === "marcy") {
-      setValorOperador(0)
+    } else if (operadorValue === "Marcy") {
+      setValorOperador(0);
       setValorOperador(11.25 / 30);
     } else {
-      setValorOperador(0)
+      setValorOperador(0);
       setValorOperador(9.5 / 30);
     }
   }, [operadorValue]);
@@ -123,19 +133,39 @@ function Planilha() {
     return data.map((item) => {
       const empresa = item.Empresa;
       const valCliente = ValoresClientes[empresa] || 52; //Pega o valor de cada cliente, valor padrão 52
-      
+
       return {
-        Dias_Trabalhados: item["Dias calculado"] || 0,
-        Valor_Mot: 7,
-        valorTotal: (7 / 30) * (item["Dias calculado"] || 0),
+        Dias_Trabalhados:
+          item.Nome === "Totalizador" ? "" : item["Dias calculado"] || 0,
+
+        Valor_Mot: item.Nome === "Totalizador" ? "" : 7,
+
+        valorTotal:
+          item.Nome === "Totalizador"
+            ? 0
+            : (7 / 30) * (item["Dias calculado"] || 0),
+
         nome: item.Nome,
+
         cpf: formatCPF(item["CPF"]),
-        admissao: !isNaN(item.Admissão) ? excelToDate(item.Admissão) : "", demissao: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
+
+        admissao: !isNaN(item.Admissão) ? excelToDate(item.Admissão) : "",
+
+        demissao: !isNaN(item.Demissão) ? excelToDate(item.Demissão) : "",
+
         empresa: item.Empresa || "Não informado",
+
         Valor_Mot_Empresa: valCliente,
-        valorTotalEmpresa: (valCliente / 30) * (item["Dias calculado"] || 0),
+
+        valorTotalEmpresa:
+          item.Nome === "Totalizador"
+            ? 0
+            : (valCliente / 30) * (item["Dias calculado"] || 0),
+
         valorOp: valorOperador * (item["Dias calculado"] || 0),
+        
       };
+      
     });
   };
 
@@ -169,6 +199,7 @@ function Planilha() {
     .reduce((soma, item) => soma + item.valorOp, 0)
     .toFixed(2);
 
+    
 
   return (
     <div className={styles.container}>
@@ -210,7 +241,7 @@ function Planilha() {
               </option>
               <option value="aj">AJ Transportes</option>
               <option value="barcellos">Barcellos</option>
-              <option value="baroncello">Baroncello</option>
+              <option value="baroncelo">Baroncelo</option>
               <option value="bc">BC</option>
               <option value="beviani">Beviani</option>
               <option value="betel">Betel</option>
@@ -223,7 +254,6 @@ function Planilha() {
               <option value="fraga">Fraga Transportes</option>
               <option value="froes">Froes</option>
               <option value="gh">GH</option>
-              <option value="gsi">GSI</option>
               <option value="gtl">GTL</option>
               <option value="hr">HR</option>
               <option value="jomar">Jomar</option>
@@ -240,7 +270,6 @@ function Planilha() {
               <option value="pedrao">Pedrão</option>
               <option value="picoli">Picoli</option>
               <option value="portolog">Portolog</option>
-              <option value="portoex">Portoex</option>
               <option value="rtm">RTM</option>
               <option value="saff_fortaleza">Saff Fortaleza</option>
               <option value="saff_porto">Saff Fortaleza Porto</option>
@@ -249,7 +278,6 @@ function Planilha() {
               <option value="saff_santos">Saff Santos</option>
               <option value="saff_simoes">Saff simoes Filho</option>
               <option value="sanmartino">San Martino</option>
-              <option value="santateresinha">Santa Teresinha</option>
               <option value="semfronteiras">Sem Fronteiras</option>
               <option value="simas">Simas</option>
               <option value="smlog">SmLog</option>
@@ -257,7 +285,6 @@ function Planilha() {
               <option value="tac">Tac</option>
               <option value="taype">Taype</option>
               <option value="transcosta">Transcosta</option>
-              <option value="transmoor">Transmoor</option>
               <option value="vibelog">Vibelog</option>
               <option value="viplog">Viplog</option>
               <option value="eireli">Vip Eireli</option>
@@ -276,8 +303,15 @@ function Planilha() {
             >
               Excel
             </button>
-            
           </div>
+
+          {operadorValue !== "" && 
+          <div className={styles.valor}>
+            <p>
+              Operador: <span>{operadorValue}</span>
+            </p>
+            </div>}
+
           <div className={styles.planilha}>
             <div className={styles.header}>
               <p className={styles.dias}>Dias Trabalhados</p>

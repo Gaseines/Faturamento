@@ -18,7 +18,7 @@ export const ValoresClientes = {
   "SANTA TERESINHA TRANSPORTES.": 55,
   SMLOG: 55,
   VIPLOG: 55,
-  "FRAGA TRANSPORTES LTDA":55,
+  "FRAGA TRANSPORTES LTDA.":55,
   "Sudden Transportes Ltda": 55,
   "ELO": 55,
   "TAYPE": 55,
