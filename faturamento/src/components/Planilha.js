@@ -122,6 +122,9 @@ function Planilha() {
     } else if (operadorValue === "Marcy") {
       setValorOperador(0);
       setValorOperador(11.25 / 30);
+    } else if (operadorValue === "Luis Felipe") {
+      setValorOperador(0);
+      setValorOperador(11.25 / 30);
     } else {
       setValorOperador(0);
       setValorOperador(9.5 / 30);

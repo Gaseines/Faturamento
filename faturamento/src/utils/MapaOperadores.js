@@ -23,7 +23,7 @@ export const operatorMapping = {
     betel: "Laion",
     barcellos: "Luis Felipe",
     froes: "Luis Felipe",
-    sanmartino: "Luis Felipe",
+    sanmartino: "Rubens",
     rtm: "Wesley",
     mge: "Rubens",
     lf: "Laion",

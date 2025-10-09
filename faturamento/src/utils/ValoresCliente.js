@@ -1,4 +1,8 @@
 export const ValoresClientes = {
+  //*******************************---87---******************** */
+  //Pedrão-------------------------------------------------
+  "PEDRAO TRANSPORTE DE CARGAS LTDA": 87,
+  "DJONAS CIDCLEI FERNANDES ME": 87,
   //*******************************---55---******************** */
   Barcellos: 55,
   "BEVIANI TRANSPORTES": 55,
@@ -23,11 +27,11 @@ export const ValoresClientes = {
   "ELO": 55,
   "TAYPE": 55,
   //MWM------------------------------------------------------
-  "MWM TRANSPORTES - 29.816.009/0001-57": 55,
-  "WAGNER TRANSPORTES - 17.506.455/0001-86": 55,
-  "MVR TRANSPORTES LTDA 48.159.434/0001-65": 55,
-  "ITACIBALOG TRANSPORTE LTDA 48.159.624/0001-82": 55,
-  "MVR LOGISTICA - 52.347.618/0001-26": 55,
+  "MWM TRANSPORTES": 55,
+  "WAGNER TRANSPORTES": 55,
+  "MVR TRANSPORTES LTDA": 55,
+  "ITACIBALOG TRANSPORTE LTDA": 55,
+  "MVR LOGISTICA": 55,
   "MVR LOG LTDA": 55,
   "PRIME LOG TRANSPORTES LTDA": 55,
   TERCEIRO: 55,
