@@ -105,24 +105,21 @@ function Planilha() {
     //   setOperadorValue("")
     // }
 
-    if(!optionCliente){
-      setOperadorValue("")
+    if (!optionCliente) {
+      setOperadorValue("");
     }
 
-    setOperadorValue(operatorMapping[optionCliente] ?? "")
-
+    setOperadorValue(operatorMapping[optionCliente] ?? "");
   }, [optionCliente, operadorValue]);
 
   //Define o calculo que será feito para valor de operador
   useEffect(() => {
     setValorOperador(0);
-    if (operadorValue === "Maria") {
-      setValorOperador(0);
-      setValorOperador(11.25 / 30);
-    } else if (operadorValue === "Marcy") {
-      setValorOperador(0);
-      setValorOperador(11.25 / 30);
-    } else if (operadorValue === "Luis Felipe") {
+    if (
+      operadorValue === "Maria" ||
+      operadorValue === "Marcy" ||
+      operadorValue === "Luis Felipe"
+    ) {
       setValorOperador(0);
       setValorOperador(11.25 / 30);
     } else {
@@ -166,9 +163,7 @@ function Planilha() {
             : (valCliente / 30) * (item["Dias calculado"] || 0),
 
         valorOp: valorOperador * (item["Dias calculado"] || 0),
-        
       };
-      
     });
   };
 
@@ -201,8 +196,6 @@ function Planilha() {
   const somaValorO = processarDadosFiltrados(data)
     .reduce((soma, item) => soma + item.valorOp, 0)
     .toFixed(2);
-
-    
 
   return (
     <div className={styles.container}>
@@ -308,12 +301,13 @@ function Planilha() {
             </button>
           </div>
 
-          {operadorValue !== "" && 
-          <div className={styles.valor}>
-            <p>
-              Operador: <span>{operadorValue}</span>
-            </p>
-            </div>}
+          {operadorValue !== "" && (
+            <div className={styles.valor}>
+              <p>
+                Operador: <span>{operadorValue}</span>
+              </p>
+            </div>
+          )}
 
           <div className={styles.planilha}>
             <div className={styles.header}>
