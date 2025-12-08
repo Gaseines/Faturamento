@@ -25,7 +25,7 @@ export const ValoresClientes = {
   "FRAGA TRANSPORTES LTDA.": 55,
   "Sudden Transportes Ltda": 55,
   ELO: 55,
-  TAYPE: 55,
+  "TAYPE TRANSPORTES LTDA": 55,
   //MWM------------------------------------------------------
   "MWM TRANSPORTES": 55,
   "WAGNER TRANSPORTES": 55,
@@ -35,8 +35,8 @@ export const ValoresClientes = {
   "MVR LOG LTDA": 55,
   "PRIME LOG TRANSPORTES LTDA": 55,
   TERCEIRO: 55,
-  "0063 TOP LOG LTDA - Matriz": 55,
-  "0064 TOP LOG LTDA - Filial": 55,
+  "TOP LOG LTDA - Matriz": 55,
+  "TOP LOG LTDA - Filial": 55,
   //---------------------------------------------------------
 
   //************************---50---******************* */
