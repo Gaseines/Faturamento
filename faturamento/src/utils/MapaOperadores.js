@@ -16,6 +16,8 @@ export const operatorMapping = {
     wagner: "Maria",
     primelog: "Maria",
     itaciba: "Maria",
+    toplogmatriz: "Maria",
+    toplogfilial: "Maria",
     //------------------------------
     gh: "Laion",
     elo: "Maria",

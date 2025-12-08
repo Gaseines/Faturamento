@@ -261,6 +261,8 @@ function Planilha() {
               <option value="wagner">Wagner Transportes</option>
               <option value="primelog">Prime Log</option>
               <option value="itaciba">Itaciba Log</option>
+              <option value="toplogmatriz">Top Log Matriz</option>
+              <option value="toplogfilial">Top Log Filial</option>
               <option value="nardi">Nardi</option>
               <option value="paganini">Paganini</option>
               <option value="pedrao">Pedrão</option>

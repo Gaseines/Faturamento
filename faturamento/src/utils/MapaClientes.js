@@ -34,6 +34,8 @@ export const clientMapping = {
   wagner: ["WAGNER TRANSPORTES"],
   primelog: ["PRIME LOG TRANSPORTES LTDA"],
   itaciba: ["ITACIBALOG TRANSPORTE LTDA"],
+  toplogmatriz: ["TOP LOG LTDA - Matriz"],
+  toplogfilial: ["TOP LOG LTDA - Filial"],
   mwm: [
     "MWM TRANSPORTES - 29.816.009/0001-57",
     "MVR LOGISTICA - 52.347.618/0001-26",
