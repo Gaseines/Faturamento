@@ -58,4 +58,7 @@ export const ValoresClientes = {
 
   //************************---48.3---******************* */
   "BETEL TRANSPORTES DE CONTAINERS LTDA": 48.3,
+
+    //************************---40---******************* */
+  "DIONIZIO TRANSPORTES LTDA": 40,
 };

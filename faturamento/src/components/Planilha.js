@@ -244,6 +244,7 @@ function Planilha() {
               <option value="comex">Comexcargo</option>
               <option value="comavix">Comavix</option>
               <option value="dumaszak">Dumaszak</option>
+              <option value="dionizio">Dionizio</option>
               <option value="eil">EIL</option>
               <option value="elo">ELO</option>
               <option value="evandro">Evandro</option>

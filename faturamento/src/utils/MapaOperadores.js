@@ -22,6 +22,7 @@ export const operatorMapping = {
     gh: "Laion",
     elo: "Maria",
     dumaszak: "Maria",
+    dionizio: "",
     betel: "Laion",
     barcellos: "Luis Felipe",
     froes: "Luis Felipe",

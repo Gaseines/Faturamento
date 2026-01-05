@@ -13,6 +13,7 @@ export const clientMapping = {
     "BRS TRANSPORTES E LOGISTICA LTDA"
   ],
   comavix: ["COMAVIX ARMAZENS GERAIS LTDA"],
+  dionizio: ["DIONIZIO TRANSPORTES LTDA"],
   dumaszak: ["DUMASZAK COMERCIO DE DERIVADOS DE PETROLEO LT"],
   eil: [
     "E I L TRANSPORTES EIRELI ME",
